@@ -11,6 +11,8 @@ class Product < ApplicationRecord
 
   validate :acceptable_image
 
+  validates :title, length: { minimum:10, message: "Title is too short, it must be at least 10 characters long" }
+
   def acceptable_image
     return unless image.attached?
 
