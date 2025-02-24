@@ -12,7 +12,7 @@ class Product < ApplicationRecord
   validate :acceptable_image
 
   def acceptable_image
-    return unless image.has_one_attached?
+    return unless image.attached?
 
     acceptable_types = ["image/gif", "image/jpeg", "image/png"]
 
