@@ -32,7 +32,10 @@ class CartsTest < ApplicationSystemTestCase
 
   test "should destroy Cart" do
     visit cart_url(@cart)
-    click_on "Destroy this cart", match: :first
+
+    accept_alert do
+      click_on "Destroy this cart", match: :first
+    end
 
     assert_text "Cart was successfully destroyed"
   end

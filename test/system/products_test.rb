@@ -16,7 +16,8 @@ class ProductsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @product.description
     fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Title", with: "#{@product.title} system test"
+    attach_file("Image", "test/fixtures/files/lorem.jpg")
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -38,7 +39,10 @@ class ProductsTest < ApplicationSystemTestCase
 
   test "should destroy Product" do
     visit product_url(@product)
-    click_on "Destroy this product", match: :first
+
+    accept_alert do
+      click_on "Destroy this product", match: :first
+    end
 
     assert_text "Product was successfully destroyed"
   end
