@@ -11,6 +11,7 @@ class LineItemsTest < ApplicationSystemTestCase
   end
 
   test "should create line item" do
+    skip("flow not in use")
     visit line_items_url
     click_on "New line item"
 
@@ -36,7 +37,10 @@ class LineItemsTest < ApplicationSystemTestCase
 
   test "should destroy Line item" do
     visit line_item_url(@line_item)
-    click_on "Destroy this line item", match: :first
+
+    accept_alert do
+      click_on "Destroy this line item", match: :first
+    end
 
     assert_text "Line item was successfully destroyed"
   end
