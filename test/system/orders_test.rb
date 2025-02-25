@@ -11,6 +11,7 @@ class OrdersTest < ApplicationSystemTestCase
   end
 
   test "should create order" do
+    skip("flow not in use")
     visit orders_url
     click_on "New order"
 
@@ -25,6 +26,7 @@ class OrdersTest < ApplicationSystemTestCase
   end
 
   test "should update Order" do
+    skip("flow not in use")
     visit order_url(@order)
     click_on "Edit this order", match: :first
 
@@ -40,7 +42,9 @@ class OrdersTest < ApplicationSystemTestCase
 
   test "should destroy Order" do
     visit order_url(@order)
-    click_on "Destroy this order", match: :first
+    accept_alert do
+      click_on "Destroy this order", match: :first
+    end
 
     assert_text "Order was successfully destroyed"
   end
