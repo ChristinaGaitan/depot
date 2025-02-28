@@ -5,10 +5,7 @@
   <% end %>
 
   <td class="text-right">
-    <%= sprintf("%2d x %s", line_item.quantity,
-      truncate(line_item.product.title, length: 50)) %>
-  </td>
-
+    <%= line_item.quantity %></td>
   <td>&times;</td>
 
   <td class="pr-2">
